@@ -1,0 +1,23 @@
+{
+  "name": "greenguardian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "nodemon server.js",
+    "start": "server.js",
+    "lint": "eslint ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0",
+    "nodemon": "^3.1.2"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.9"
+  }
+}
