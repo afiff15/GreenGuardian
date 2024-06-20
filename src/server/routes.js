@@ -9,13 +9,13 @@ const routes = [
       payload: {
         allow: 'multipart/form-data',
         multipart: true
-      }
+      },
     }
   },
   {
     path: '/predict/history',
     method: 'GET',
-    handler: getAllPredictionsHandler
+    handler: getAllPredictionsHandler,
   }
 ];
 

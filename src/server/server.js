@@ -1,7 +1,7 @@
 require('dotenv').config();
-
 const Hapi = require('@hapi/hapi');
 const routes = require('../server/routes');
+const userRoutes = require('../server/user.routes');
 const loadModel = require('../services/loadModel');
 const InputError = require('../exceptions/InputError');
 
@@ -20,6 +20,7 @@ const InputError = require('../exceptions/InputError');
     server.app.model = model;
 
     server.route(routes);
+    server.route(userRoutes);
 
     server.ext('onPreResponse', function (request, h) {
         const response = request.response;
@@ -46,5 +47,5 @@ const InputError = require('../exceptions/InputError');
     });
 
     await server.start();
-    console.log(`Server start at: ${server.info.uri}`);
+    console.log(`Server started at: ${server.info.uri}`);
 })();

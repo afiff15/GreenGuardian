@@ -1,6 +1,6 @@
 const { Firestore } = require('@google-cloud/firestore');
 
-const loadHistoryData = async () => {
+const loadHistoryData = async (userId) => {
   const db = new Firestore({
     keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
     projectId: 'greenguardian-426110',
@@ -9,7 +9,7 @@ const loadHistoryData = async () => {
 
   const predictCollection = db.collection('predictions');
 
-  const snapshot = await predictCollection.orderBy('createdAt', 'desc').get();
+  const snapshot = await predictCollection.where('userId', '==', userId).orderBy('createdAt', 'desc').get();
 
   const data = snapshot.docs.map((doc) => ({
     id: doc.id,
