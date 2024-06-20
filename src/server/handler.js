@@ -39,8 +39,13 @@ const postPredictHandler = async (request, h) => {
 };
 
 const getAllPredictionsHandler = async (request, h) => {
+    const { uid } = request.query; // Extract uid from the query parameters
+  
+    if (!uid) {
+      return h.response({ message: 'User ID is required' }).code(400);
+    }
+  
     try {
-        const { uid } = request;
         const { data } = await loadHistoryData(uid);
 
         return h
@@ -52,6 +57,6 @@ const getAllPredictionsHandler = async (request, h) => {
     } catch (error) {
         throw new InputError('Terjadi kesalahan dalam melakukan prediksi', 400);
     }
-};
+  };
 
 module.exports = { postPredictHandler, getAllPredictionsHandler };
