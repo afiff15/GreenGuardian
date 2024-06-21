@@ -1,0 +1,8 @@
+<!-- res/drawable/gradient_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+	<gradient
+		android:startColor="@color/green"
+		android:endColor="@color/greenGradient"
+		android:angle="315" />
+	<corners android:radius="20dp" />
+</shape>

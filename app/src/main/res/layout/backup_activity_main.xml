@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/drawer_layout"
+	android:fitsSystemWindows="true"
+	tools:openDrawer="right"
+	tools:context=".MainActivity">
+	
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+		<TextView
+			android:id="@+id/name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Loading.."
+			android:textSize="24dp"
+			android:fontFamily="@font/poppins_bold"
+			android:textColor="@color/black"
+			android:layout_marginTop="60dp"
+			android:layout_marginLeft="30dp"
+			app:layout_constraintHorizontal_bias="0.498"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintVertical_bias="0.212" />
+		
+		<TextView
+			android:id="@+id/paragraph"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:text="Start detecting diseases in your plants by taking pictures of them"
+			android:textSize="16dp"
+			android:fontFamily="@font/poppins_semi_bold"
+			android:textColor="@color/greyText"
+			android:layout_marginLeft="30dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/name"/>
+		
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/dropzone"
+			android:layout_width="0dp"
+			android:layout_height="200dp"
+			android:layout_marginHorizontal="30dp"
+			android:layout_marginTop="30dp"
+			android:background="@drawable/dropzone_background"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			android:clickable="true"
+			android:focusable="true"
+			app:layout_constraintTop_toBottomOf="@+id/paragraph">
+			
+			<ImageView
+				android:id="@+id/cameraIcon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/ic_camera"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toTopOf="@id/textView"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:layout_marginBottom="8dp" />
+			
+			<TextView
+				android:id="@+id/textView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Click here to upload your plants!"
+				android:textSize="16sp"
+				android:textColor="@color/greyText"
+				app:layout_constraintTop_toBottomOf="@id/cameraIcon"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent" />
+			
+			<ImageView
+				android:id="@+id/imagePreview"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:scaleType="centerCrop"
+				android:visibility="gone"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent" />
+		
+		</androidx.constraintlayout.widget.ConstraintLayout>
+		
+		<ImageView
+			android:id="@+id/removeImageIcon"
+			android:layout_width="33dp"
+			android:layout_height="33dp"
+			android:layout_marginTop="20dp"
+			android:layout_marginRight="20dp"
+			android:src="@drawable/ic_close"
+			android:visibility="invisible"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/paragraph" />
+		
+		<Button
+			android:id="@+id/logout_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="logout"
+			android:layout_marginTop="30dp"
+			android:background="@color/red"
+			android:textColor="@color/white"
+			android:textStyle="bold"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.498"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/dropzone" />
+		
+		<ImageView
+			android:id="@+id/profileIcon"
+			android:layout_width="30dp"
+			android:layout_height="30dp"
+			android:layout_marginTop="20dp"
+			android:layout_marginEnd="20dp"
+			android:src="@drawable/ic_profile"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			android:clickable="true"
+			android:focusable="true" />
+	
+	</androidx.constraintlayout.widget.ConstraintLayout>
+	
+	<com.google.android.material.navigation.NavigationView
+		android:id="@+id/nav_view"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_gravity="end"
+		android:background="@color/greenTransparent"
+		app:headerLayout="@layout/nav_header"
+		app:menu="@menu/nav_menu"
+		app:itemIconTint="@color/greenDark"
+		app:itemTextColor="@color/greenDark"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
